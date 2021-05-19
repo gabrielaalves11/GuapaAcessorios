@@ -9,7 +9,7 @@ namespace api_rest_guapa.Domain.Helpers
     public enum EUnitOfMeasurement : byte
     {
         [Description("UN")]
-        Unit = 1,
+        Unity = 1,
 
         [Description("MG")]
         Milligram = 2,

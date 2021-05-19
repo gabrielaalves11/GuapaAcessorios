@@ -13,6 +13,7 @@ namespace api_rest_guapa.Mapping
         public ResourceToModelProfile()
         {
             CreateMap<SaveCategoryResource, Category>();
+            CreateMap<AuthUserResource, User>();
         }
     }
 }

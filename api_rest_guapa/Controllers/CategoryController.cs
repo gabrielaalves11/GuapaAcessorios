@@ -3,6 +3,7 @@ using api_rest_guapa.Domain.Services;
 using api_rest_guapa.Extensions;
 using api_rest_guapa.Resources;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ using System.Threading.Tasks;
 
 namespace api_rest_guapa.Controllers
 {
-    [ApiController]
-    [Route("api/category")]
+    [Route("/api/[controller]")]
+    [Authorize()]
 
     public class CategoryController : Controller
     {
@@ -31,6 +32,24 @@ namespace api_rest_guapa.Controllers
             var categories = await _categoryService.ListAsync();
             var resources = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryResource>>(categories);
             
+            return resources;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<CategoryResource> GetByIdAsync(int id)
+        {
+            var category = await _categoryService.FindByIdAsync(id);
+            var resources = _mapper.Map<Category, CategoryResource>(category);
+
+            return resources;
+        }
+
+        [HttpGet("GetByName/{name}")]
+        public async Task<IEnumerable<CategoryResource>> GetByNameAsync(string name)
+        {
+            var categories = await _categoryService.FindByNameAsync(name);
+            var resources = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryResource>>(categories);
+
             return resources;
         }
 

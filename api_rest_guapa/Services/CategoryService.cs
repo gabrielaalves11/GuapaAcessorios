@@ -19,9 +19,20 @@ namespace api_rest_guapa.Services
             _categoryRepository = categoryRepository;
             _unitOfWork = unitOfWork;
         }
+
         public async Task<IEnumerable<Category>> ListAsync()
         {
             return await _categoryRepository.ListAsync();
+        }
+
+        public async Task<Category> FindByIdAsync(int id)
+        {
+            return await _categoryRepository.FindByIdAsync(id);
+        }
+
+        public async Task<IEnumerable<Category>> FindByNameAsync(string name)
+        {
+            return await _categoryRepository.FindByNameAsync(name);
         }
 
         public async Task<CategoryResponse> SaveAsync(Category category)

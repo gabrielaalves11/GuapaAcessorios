@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api_rest_guapa.Domain.Helpers;
 
 namespace api_rest_guapa.Persistence.Contexts
 {
@@ -12,6 +13,7 @@ namespace api_rest_guapa.Persistence.Contexts
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -27,8 +29,16 @@ namespace api_rest_guapa.Persistence.Contexts
 
             builder.Entity<Category>().HasData
             (
-                new Category { Id = 100, Name = "Fruits and Vegetables" },
-                new Category { Id = 101, Name = "Dairy" }
+                new Category 
+                { 
+                    Id = 100, 
+                    Name = "Fruits and Vegetables" 
+                },
+                new Category 
+                { 
+                    Id = 101, 
+                    Name = "Dairy" 
+                }
             );
 
             builder.Entity<Product>().ToTable("Products");
@@ -37,6 +47,42 @@ namespace api_rest_guapa.Persistence.Contexts
             builder.Entity<Product>().Property(p => p.Name).IsRequired().HasMaxLength(50);
             builder.Entity<Product>().Property(p => p.QuantityInPackage).IsRequired();
             builder.Entity<Product>().Property(p => p.UnitOfMeasurement).IsRequired();
+
+            builder.Entity<Product>().HasData
+            (
+                new Product
+                {
+                    Id = 100,
+                    Name = "Apple",
+                    QuantityInPackage = 1,
+                    UnitOfMeasurement = EUnitOfMeasurement.Unity,
+                    CategoryId = 100
+                },
+                new Product
+                {
+                    Id = 101,
+                    Name = "Milk",
+                    QuantityInPackage = 2,
+                    UnitOfMeasurement = EUnitOfMeasurement.Liter,
+                    CategoryId = 101,
+                }
+            );
+
+            builder.Entity<User>().ToTable("Users");
+            builder.Entity<User>().HasKey(p => p.Id);
+            builder.Entity<User>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<User>().Property(p => p.Login).IsRequired().HasMaxLength(50);
+            builder.Entity<User>().Property(p => p.Password).IsRequired().HasMaxLength(10);
+
+            builder.Entity<User>().HasData
+            (
+                new User
+                {
+                    Id = 100,
+                    Login = "john",
+                    Password = "12345",
+                }
+            );
         }
     }
 }

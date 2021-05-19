@@ -11,6 +11,8 @@ namespace api_rest_guapa.Domain.Services
     {
         Task<IEnumerable<Category>> ListAsync();
         Task<CategoryResponse> SaveAsync(Category category);
+        Task<Category> FindByIdAsync(int id);
+        Task<IEnumerable<Category>> FindByNameAsync(string name);
         Task<CategoryResponse> UpdateAsync(int id, Category category);
         Task<CategoryResponse> DeleteAsync(int id);
     }

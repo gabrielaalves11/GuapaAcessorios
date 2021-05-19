@@ -30,6 +30,11 @@ namespace api_rest_guapa.Persistence.Repositories
             return await _context.Categories.FindAsync(id);
         }
 
+        public async Task<IEnumerable<Category>> FindByNameAsync(string name)
+        {
+            return await _context.Categories.Where(x => x.Name.Contains(name)).ToListAsync();
+        }
+
         public void Update(Category category)
         {
             _context.Categories.Update(category);
