@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\api_rest_guapa",
-    "\\api_rest_guapa\\Controllers"
+    "\\api_rest_guapa\\Domain",
+    "\\api_rest_guapa\\Domain\\Repositories"
   ],
-  "SelectedNode": "\\api_rest_guapa.sln",
+  "SelectedNode": "\\api_rest_guapa\\Domain\\Repositories\\IUserRepository.cs",
   "PreviewInSolutionExplorer": false
 }

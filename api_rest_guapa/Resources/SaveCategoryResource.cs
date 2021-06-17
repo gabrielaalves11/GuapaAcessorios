@@ -11,5 +11,6 @@ namespace api_rest_guapa.Resources
         [Required]
         [MaxLength(30)]
         public string Name { get; set; }
+
     }
 }

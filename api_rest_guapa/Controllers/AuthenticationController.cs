@@ -11,9 +11,11 @@ using Newtonsoft.Json.Linq;
 using api_rest_guapa.Util;
 using api_rest_guapa.Extensions;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Cors;
 
 namespace api_rest_guapa.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("/api/[controller]")]
     [AllowAnonymous]
     public class AuthenticationController : ControllerBase

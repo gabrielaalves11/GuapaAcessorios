@@ -37,6 +37,15 @@ namespace api_rest_guapa
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyPolicy",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
 
             services.AddDbContext<AppDbContext>(options => {
@@ -91,8 +100,8 @@ namespace api_rest_guapa
             }
 
             app.UseStaticFiles();
-            app.UseCors();
             app.UseRouting();
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

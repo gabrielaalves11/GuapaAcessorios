@@ -4,6 +4,7 @@ using api_rest_guapa.Extensions;
 using api_rest_guapa.Resources;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace api_rest_guapa.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("/api/[controller]")]
     [Authorize()]
 

@@ -31,13 +31,13 @@ namespace api_rest_guapa.Persistence.Contexts
             (
                 new Category 
                 { 
-                    Id = 100, 
-                    Name = "Fruits and Vegetables" 
+                    Id = 1, 
+                    Name = "Colares" 
                 },
                 new Category 
                 { 
-                    Id = 101, 
-                    Name = "Dairy" 
+                    Id = 2, 
+                    Name = "Anéis" 
                 }
             );
 
@@ -52,19 +52,19 @@ namespace api_rest_guapa.Persistence.Contexts
             (
                 new Product
                 {
-                    Id = 100,
-                    Name = "Apple",
+                    Id = 1,
+                    Name = "Colar Olho Grego",
                     QuantityInPackage = 1,
                     UnitOfMeasurement = EUnitOfMeasurement.Unity,
-                    CategoryId = 100
+                    CategoryId = 1
                 },
                 new Product
                 {
-                    Id = 101,
-                    Name = "Milk",
+                    Id = 2,
+                    Name = "Anel Solitário",
                     QuantityInPackage = 2,
                     UnitOfMeasurement = EUnitOfMeasurement.Liter,
-                    CategoryId = 101,
+                    CategoryId = 2
                 }
             );
 
@@ -78,9 +78,9 @@ namespace api_rest_guapa.Persistence.Contexts
             (
                 new User
                 {
-                    Id = 100,
-                    Login = "john",
-                    Password = "12345",
+                    Id = 1,
+                    Login = "guapaacessorio",
+                    Password = "12345"
                 }
             );
         }
