@@ -8,7 +8,8 @@ const EditProduct = props => {
         id: null,
         name: "",
         quantityInPackage: "",
-        category: { name: "" }
+        price: "",
+        categoryId: ""
     };
 
     const [currentProduct, setCurrentProduct] = useState(initialProductState);
@@ -38,7 +39,7 @@ const EditProduct = props => {
             .then(response => {
                 console.log(response.data);
                 alert("Atualizado com sucesso!");
-                props.history.push("/produtos");
+                props.history.push("/catálogo");
             })
             .catch(e => {
                 console.log(e);
@@ -51,7 +52,7 @@ const EditProduct = props => {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-7 shadow p-3 mb-5 bg-white rounded">
-                            <h5>Atualizar Produto!</h5>
+                            <h5 className="text-center">Atualizar Produto!</h5>
                             <hr />
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">Nome do Produto:</label>
@@ -62,12 +63,16 @@ const EditProduct = props => {
                                 <input type="text" className="form-control" id="quantityInPackage" value={currentProduct.quantityInPackage} onChange={handleInputChange} name="quantityInPackage" required />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="category" className="form-label">Categoria:</label>
-                                <input type="text" className="form-control" id="category" value={currentProduct.category} onChange={handleInputChange} name="category" required />
-                                <p>Modifique por uma categoria existente em categroias!</p>
+                                <label htmlFor="price" className="form-label">Preço em R$:</label>
+                                <input type="text" className="form-control" id="price" value={currentProduct.price} onChange={handleInputChange} name="price" required />
                             </div>
+                            <div className="mb-3">
+                                <label htmlFor="categoryId" className="form-label">Identicação da Categoria:</label>
+                                <input type="text" className="form-control" id="categoryId" value={currentProduct.categoryId} onChange={handleInputChange} name="categoryId" required />
+                            </div>
+                            <hr />
                             <div className="d-grid gap-2">
-                                <button type="button" className="btn color text-white" onClick={updateProduct}>Salvar</button>
+                                <button type="button" className="btn btn-info text-white" onClick={updateProduct}>Salvar</button>
                             </div>
                         </div>
                     </div>

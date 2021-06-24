@@ -9,5 +9,6 @@ namespace api_rest_guapa.Resources
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public IList<ProductResource> Products { get; set; }
     }
 }

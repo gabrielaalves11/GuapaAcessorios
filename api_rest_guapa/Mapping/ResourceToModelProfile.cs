@@ -14,6 +14,7 @@ namespace api_rest_guapa.Mapping
         {
             CreateMap<SaveCategoryResource, Category>();
             CreateMap<SaveProductResource, Product>();
+            CreateMap<SaveUserResource, User>();
             CreateMap<AuthUserResource, User>();
         }
     }

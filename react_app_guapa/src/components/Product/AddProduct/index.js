@@ -1,52 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ProductDataService from "../../../services/Product/index";
-import CategoryDataService from "../../../services/Category/index";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
 
-const AddProduct = props => {
+const AddProduct = () => {
     const initialProductState =
     {
         id: null,
         name: "",
         quantityInPackage: "",
-        category: { id: null, name: null }
+        price: "",
+        categoryId: ""
     };
 
-    const [category, setCategory] = useState([]);
     const [product, setProduct] = useState(initialProductState);
     const [submitted, setSubmitted] = useState(false);
 
-    const handleInputChangeProduct = event => {
-        const { name, quantityInPackage, category, value } = event.target;
-        setProduct({ ...product, [name]: value, [quantityInPackage]: value, [category]: value });
-    };
-
-    const getCategory = id => {
-        CategoryDataService.get(id)
-            .then(response => {
-                setCategory(response.data);
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    };
-
-    useEffect(() => {
-        getCategory(props.match.params.id);
-    }, [props.match.params.id]);
-
-    const handleInputChangeCategory = event => {
+    const handleInputChange = event => {
         const { name, value } = event.target;
-        setCategory({ ...category, [name]: value });
+        setProduct({ ...product, [name]: value });
     };
 
     const saveProduct = () => {
         var data = {
             name: product.name,
             quantityInPackage: product.quantityInPackage,
-            category: product.category
+            price: product.price,
+            categoryId: product.categoryId
         };
 
         ProductDataService.create(data)
@@ -55,7 +35,8 @@ const AddProduct = props => {
                     id: response.data.id,
                     name: response.data.name,
                     quantityInPackage: response.data.quantityInPackage,
-                    category: response.data.category
+                    price: response.data.price,
+                    categoryId: response.data.categoryId
                 });
                 setSubmitted(true);
                 console.log(response.data);
@@ -72,16 +53,14 @@ const AddProduct = props => {
 
     return (
         <div className="submit-form">
-            {submitted && category ? (
+            {submitted ? (
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-7 shadow p-3 mb-5 bg-white rounded">
-                            <div className="d-grid gap-2">
-                                <h4>Produto adicionado com sucesso!</h4>
-                                <hr />
-                                <button className="btn color text-white" onClick={newProduct}>Adicionar novo produto</button>
-                                <Link className="btn color text-white" to="/categorias">Ir para Categorias</Link>
-                            </div>
+                            <h4>Produto adicionado com sucesso!</h4>
+                            <hr />
+                            <button type="button" className="btn btn-info btn-lg btn-block" onClick={newProduct}>Adicionar novo produto</button>
+                            <Link type="button" className="btn btn-info btn-lg btn-block" to="/catálogo">Ir para Catálogo</Link>
                         </div>
                     </div>
                 </div>
@@ -89,26 +68,27 @@ const AddProduct = props => {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-sm-7 shadow p-3 mb-5 bg-white rounded">
-                            <h5>Adicionar um Produto!</h5>
+                            <h5 className="text-center">Adicionar um Produto!</h5>
                             <hr />
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">Nome do produto:</label>
-                                <input type="text" className="form-control" id="name" value={product.name} onChange={handleInputChangeProduct} name="name" placeholder="Digite o nome do produto" required />
+                                <input type="text" className="form-control" id="name" value={product.name} onChange={handleInputChange} name="name" placeholder="Digite o nome do produto" required />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="quantityInPackage" className="form-label">Quantidade:</label>
-                                <input type="text" className="form-control" id="quantityInPackage" value={product.quantityInPackage} onChange={handleInputChangeProduct} name="quantityInPackage" placeholder="Digite a quantidade do produto" required />
+                                <input type="text" className="form-control" id="quantityInPackage" value={product.quantityInPackage} onChange={handleInputChange} name="quantityInPackage" placeholder="Digite a quantidade do produto" required />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="categoryid" className="form-label">Categoria Id:</label>
-                                <input type="text" className="form-control" id="categoryid" value={category.id || ""} onChange={handleInputChangeCategory} name="categoryid" required />
+                                <label htmlFor="price" className="form-label">Preço em R$:</label>
+                                <input type="text" className="form-control" id="price" value={product.price} onChange={handleInputChange} name="price" placeholder="Digite o preço do produto" required />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="category" className="form-label">Categoria:</label>
-                                <input type="text" className="form-control" id="category" value={category.name || ""} onChange={handleInputChangeCategory} name="category" required />
+                                <label htmlFor="categoryId" className="form-label">Identificação da Categoria:</label>
+                                <input type="text" className="form-control" id="categoryId" value={product.categoryId} onChange={handleInputChange} name="categoryId" placeholder="Digite a identificação da categoria" required />
                             </div>
+                            <hr />
                             <div className="d-grid gap-2">
-                                <button type="button" className="btn color text-white" onClick={saveProduct}>Salvar</button>
+                                <button type="button" className="btn btn-info text-white" onClick={saveProduct}>Salvar</button>
                             </div>
                         </div>
                     </div>

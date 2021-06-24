@@ -45,8 +45,11 @@ namespace api_rest_guapa.Persistence.Contexts
             builder.Entity<Product>().HasKey(p => p.Id);
             builder.Entity<Product>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Product>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+            builder.Entity<Product>().Property(p => p.Price).IsRequired();
             builder.Entity<Product>().Property(p => p.QuantityInPackage).IsRequired();
             builder.Entity<Product>().Property(p => p.UnitOfMeasurement).IsRequired();
+            builder.Entity<Product>().HasOne(p => p.Category).WithMany(p => p.Products)
+                .HasForeignKey(p => p.CategoryId).IsRequired().OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Product>().HasData
             (
@@ -54,6 +57,7 @@ namespace api_rest_guapa.Persistence.Contexts
                 {
                     Id = 1,
                     Name = "Colar Olho Grego",
+                    Price = "19,99",
                     QuantityInPackage = 1,
                     UnitOfMeasurement = EUnitOfMeasurement.Unity,
                     CategoryId = 1
@@ -62,6 +66,7 @@ namespace api_rest_guapa.Persistence.Contexts
                 {
                     Id = 2,
                     Name = "Anel Solitário",
+                    Price = "14,99",
                     QuantityInPackage = 2,
                     UnitOfMeasurement = EUnitOfMeasurement.Liter,
                     CategoryId = 2

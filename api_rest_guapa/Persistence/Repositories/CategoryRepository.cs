@@ -27,7 +27,8 @@ namespace api_rest_guapa.Persistence.Repositories
 
         public async Task<Category> FindByIdAsync(int id)
         {
-            return await _context.Categories.FindAsync(id);
+            var categoryProducts = _context.Categories.Include(category => category.Products).AsNoTracking();
+            return await categoryProducts.FirstOrDefaultAsync(category => category.Id == id);
         }
 
         public async Task<IEnumerable<Category>> FindByNameAsync(string name)

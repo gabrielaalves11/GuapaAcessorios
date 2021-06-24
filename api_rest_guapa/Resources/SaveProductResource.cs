@@ -15,6 +15,9 @@ namespace api_rest_guapa.Resources
         public string Name { get; set; }
 
         [Required]
+        public string Price { get; set; }
+
+        [Required]
         public short QuantityInPackage { get; set; }
 
         [Required]

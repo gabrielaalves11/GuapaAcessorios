@@ -33,7 +33,7 @@ namespace api_rest_guapa.Controllers
         {
             var categories = await _categoryService.ListAsync();
             var resources = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryResource>>(categories);
-            
+
             return resources;
         }
 

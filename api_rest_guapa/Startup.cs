@@ -48,7 +48,8 @@ namespace api_rest_guapa
 
             services.AddControllers();
 
-            services.AddDbContext<AppDbContext>(options => {
+            services.AddDbContext<AppDbContext>(options =>
+            {
                 options.UseInMemoryDatabase("template-api-restful-memory");
             });
 

@@ -10,15 +10,15 @@ function Header() {
             <footer className="bg-transparent text-center text-white">
                 <div className="container p-4 pb-0">
                     <section className="mb-0">
-                        <Link className="btn btn-outline-light m-1" to={""} role="button">
+                        <Link className="btn btn-outline-info m-1" to={""} role="button">
                             <FontAwesomeIcon icon={faFacebook} />
                         </Link>
 
-                        <Link className="btn btn-outline-light m-1" to={""} role="button">
+                        <Link className="btn btn-outline-info m-1" to={""} role="button">
                             <FontAwesomeIcon icon={faGoogle} />
                         </Link>
 
-                        <Link className="btn btn-outline-light m-1" to={""} role="button">
+                        <Link className="btn btn-outline-info m-1" to={""} role="button">
                             <FontAwesomeIcon icon={faInstagram} />
                         </Link>
                     </section>

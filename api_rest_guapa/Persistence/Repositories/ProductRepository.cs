@@ -15,8 +15,7 @@ namespace api_rest_guapa.Persistence.Repositories
 
         public async Task<IEnumerable<Product>> ListAsync()
         {
-            return await _context.Products.Include(p => p.Category)
-                                          .ToListAsync();
+            return await _context.Products.ToListAsync();
         }
 
         public async Task AddAsync(Product product)

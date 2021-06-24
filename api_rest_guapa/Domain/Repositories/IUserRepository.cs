@@ -9,5 +9,11 @@ namespace api_rest_guapa.Domain.Repositories
     public interface IUserRepository
     {
         Task<User> FirstOrDefaultAsync(String login, String password);
+        Task<IEnumerable<User>> ListAsync();
+        Task AddAsync(User user);
+        Task<User> FindByIdAsync(int id);
+        Task<IEnumerable<User>> FindByLoginAsync(string login);
+        void Update(User user);
+        void Remove(User user);
     }
 }

@@ -59,7 +59,7 @@ namespace api_rest_guapa.Services
 
             existingProduct.Name = product.Name;
             existingProduct.QuantityInPackage = product.QuantityInPackage;
-            existingProduct.Category = product.Category;
+            existingProduct.Price = product.Price;
 
             try
             {

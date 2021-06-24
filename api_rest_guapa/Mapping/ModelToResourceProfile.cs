@@ -17,9 +17,7 @@ namespace api_rest_guapa.Mapping
 
             CreateMap<User, UserResource>();
 
-            CreateMap<Product, ProductResource>()
-                .ForMember(src => src.UnitOfMeasurement,
-                           opt => opt.MapFrom(src => src.UnitOfMeasurement.ToDescriptionString()));
+            CreateMap<Product, ProductResource>(); ;
         }
     }
 }
