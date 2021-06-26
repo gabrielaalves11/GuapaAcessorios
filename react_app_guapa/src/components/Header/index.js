@@ -14,7 +14,6 @@ const Header = () => {
                 <ul className="nav nav-pills">
                     <li className="nav-item"><Link to={"/comprarProdutos"} className="nav-link text-white">Comprar</Link></li>
                     <li className="nav-item"><Link to={"/catálogo"} className="nav-link text-white">Catálogo</Link></li>
-                    <li className="nav-item"><Link to={"/carrinho"} className="nav-link text-white">Carrinho</Link></li>
                     <li className="nav-item"><Link to={"/"} className="nav-link text-white">Sair</Link></li>
                 </ul>
             </header>

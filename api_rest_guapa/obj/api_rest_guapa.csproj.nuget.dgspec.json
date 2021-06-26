@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabriela Alves\\source\\repos\\GuapaAcessorios\\api_rest_guapa\\api_rest_guapa.csproj": {}
+    "C:\\Users\\Gabriela Alves\\source\\repos\\guapaacessorios\\api_rest_guapa\\api_rest_guapa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabriela Alves\\source\\repos\\GuapaAcessorios\\api_rest_guapa\\api_rest_guapa.csproj": {
+    "C:\\Users\\Gabriela Alves\\source\\repos\\guapaacessorios\\api_rest_guapa\\api_rest_guapa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabriela Alves\\source\\repos\\GuapaAcessorios\\api_rest_guapa\\api_rest_guapa.csproj",
+        "projectUniqueName": "C:\\Users\\Gabriela Alves\\source\\repos\\guapaacessorios\\api_rest_guapa\\api_rest_guapa.csproj",
         "projectName": "api_rest_guapa",
-        "projectPath": "C:\\Users\\Gabriela Alves\\source\\repos\\GuapaAcessorios\\api_rest_guapa\\api_rest_guapa.csproj",
+        "projectPath": "C:\\Users\\Gabriela Alves\\source\\repos\\guapaacessorios\\api_rest_guapa\\api_rest_guapa.csproj",
         "packagesPath": "C:\\Users\\Gabriela Alves\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabriela Alves\\source\\repos\\GuapaAcessorios\\api_rest_guapa\\obj\\",
+        "outputPath": "C:\\Users\\Gabriela Alves\\source\\repos\\guapaacessorios\\api_rest_guapa\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -60,7 +60,13 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -68,11 +74,19 @@
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[5.0.7, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

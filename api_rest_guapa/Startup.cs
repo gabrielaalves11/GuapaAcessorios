@@ -48,10 +48,12 @@ namespace api_rest_guapa
 
             services.AddControllers();
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<AppDbContext>(p => p.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            /*services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseInMemoryDatabase("template-api-restful-memory");
-            });
+            });*/
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();

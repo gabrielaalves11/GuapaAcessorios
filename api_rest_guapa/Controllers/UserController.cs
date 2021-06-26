@@ -2,6 +2,8 @@
 using api_rest_guapa.Domain.Services;
 using api_rest_guapa.Extensions;
 using api_rest_guapa.Resources;
+using api_rest_guapa.Util;
+using api_rest_guapa.Persistence.Contexts;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -20,11 +22,19 @@ namespace api_rest_guapa.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
+        private readonly AppDbContext _context = null;
+        private UserController(AppDbContext context){}
 
         public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
             _mapper = mapper;
+        }
+
+        [HttpGet]
+        public ActionResult GetAll()
+        {
+            return Ok(_context.Users.Select(s => StringProcessor.ToUpperCase(s.Login)).ToList());
         }
 
         [HttpGet]

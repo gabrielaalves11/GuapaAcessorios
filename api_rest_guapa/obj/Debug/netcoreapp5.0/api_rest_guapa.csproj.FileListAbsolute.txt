@@ -38,3 +38,7 @@ C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\obj\Debug\ne
 C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\obj\Debug\netcoreapp5.0\staticwebassets\api_rest_guapa.StaticWebAssets.Manifest.cache
 C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\obj\Debug\netcoreapp5.0\staticwebassets\api_rest_guapa.StaticWebAssets.xml
 C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\obj\Debug\netcoreapp5.0\scopedcss\bundle\api_rest_guapa.styles.css
+C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\bin\Debug\netcoreapp5.0\Npgsql.dll
+C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\bin\Debug\netcoreapp5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Gabriela Alves\source\repos\GuapaAcessorios\api_rest_guapa\bin\Debug\netcoreapp5.0\Humanizer.dll
